@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { GripVertical } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef} from "react";
 
 type BeforeAfterSliderProps = {
   beforeImage: string;
@@ -19,8 +19,32 @@ export default function BeforeAfterSlider({
 }: BeforeAfterSliderProps) {
   const [position, setPosition] = useState(50);
 
+
+  const containerRef= useRef<HTMLDivElement>(null);
+
+  
+  
+  const updatePosition = (clientX: number)=>{
+    if(!containerRef.current) return;
+  
+    const rect= containerRef.current.getBoundingClientRect()
+   let percent = ((clientX - rect.left) / rect.width) * 100;
+
+    percent = Math.max(0, Math.min(100, percent));
+
+    setPosition(percent);
+  }
   return (
-    <div className="relative h-full min-h-[440px] w-full overflow-hidden rounded-2xl bg-[#080808] sm:min-h-[506px]">
+    <div
+      ref={containerRef}
+      className="relative h-full min-h-[440px] w-full overflow-hidden rounded-2xl bg-[#080808] touch-none sm:min-h-[506px]"
+      onMouseDown={(e) => updatePosition(e.clientX)}
+      onMouseMove={(e) => {
+        if (e.buttons === 1) updatePosition(e.clientX);
+      }}
+      onTouchStart={(e) => updatePosition(e.touches[0].clientX)}
+      onTouchMove={(e) => updatePosition(e.touches[0].clientX)}
+    >
       {/* Imagem depois */}
       <Image
         src={afterImage}
@@ -81,18 +105,7 @@ export default function BeforeAfterSlider({
       >
         <GripVertical className="h-5 w-5 text-[#d4af37]" />
       </div>
-
-      {/* Range invisível responsável pelo arrasto */}
-      <input
-        type="range"
-        min="0"
-        max="100"
-        step="0.1"
-        value={position}
-        onChange={(event) => setPosition(Number(event.target.value))}
-        aria-label="Comparer les images avant et après"
-        className="absolute inset-0 z-40 h-full w-full cursor-ew-resize opacity-0"
-      />
+     
 
       {/* Instrução */}
       <div className="pointer-events-none absolute bottom-5 left-1/2 z-30 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-black/70 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/80 backdrop-blur-md sm:text-[11px]">
