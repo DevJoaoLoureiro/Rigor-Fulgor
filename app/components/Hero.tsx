@@ -1,23 +1,30 @@
+import { FaCarSide, FaMapMarkerAlt } from "react-icons/fa";
+import { GiCarWheel } from "react-icons/gi";
+import { MdVerified } from "react-icons/md";
+import { Award } from "lucide-react";
 export default function Hero() {
-  const highlights = [
-    {
-      title: "Depuis 2009",
-      description: "Plus de 15 ans d’expérience",
-    },
-    {
-      title: "Qualité garantie",
-      description: "Des finitions professionnelles et durables",
-    },
-    {
-      title: "Tous types de jantes",
-      description: "Aluminium, sportives, classiques et spéciales",
-    },
-    {
-      title: "Intervention en France",
-      description: "Service rapide dans plusieurs régions",
-    },
-  ];
-
+ const highlights = [
+  {
+    icon: <Award className="h-7 w-7 text-[#d4af37]" />,
+    title: "Depuis 2009",
+    description: "Plus de 15 ans d’expérience",
+  },
+  {
+   icon: <MdVerified className="h-7 w-7 text-[#d4af37]" />,
+    title: "Qualité garantie",
+    description: "Des finitions professionnelles et durables",
+  },
+  {
+    icon: <GiCarWheel className="h-7 w-7 text-[#d4af37]" />,
+    title: "Tous types de jantes",
+    description: "Aluminium, sportives, classiques et spéciales",
+  },
+  {
+   icon: <FaMapMarkerAlt className="h-7 w-7 text-[#d4af37]" />,
+    title: "Intervention en France",
+    description: "Service rapide dans plusieurs régions",
+  },
+];
   return (
     <section id="accueil" className="bg-black pt-20">
       <div
@@ -72,7 +79,7 @@ export default function Hero() {
           {highlights.map((item) => (
             <div key={item.title} className="px-6 py-7 text-center">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-[#d4af37]/50 text-xl text-[#d4af37]">
-                ✓
+                  {item.icon}
               </div>
 
               <h2 className="text-sm font-black uppercase tracking-wide text-white">
