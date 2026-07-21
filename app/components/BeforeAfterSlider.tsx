@@ -60,7 +60,7 @@ export default function BeforeAfterSlider({
       <div
         className="absolute inset-0 overflow-hidden"
         style={{
-          clipPath: `inset(0 ${100 - position}% 0 0)`,
+             width: `${position}%`,
         }}
       >
         <Image
