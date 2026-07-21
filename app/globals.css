@@ -3,9 +3,12 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
+  --gold: #d4af37;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -15,9 +18,27 @@ html {
 
 body {
   margin: 0;
-  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(circle at top, rgba(212, 175, 55, 0.05) 0%, transparent 45%),
+    linear-gradient(180deg, #050505 0%, #000000 100%);
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+section {
+  position: relative;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 button,
@@ -27,7 +48,96 @@ textarea {
   font: inherit;
 }
 
+button,
+a {
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 ::selection {
-  background: #d4af37;
-  color: #000000;
+  background: rgba(212, 175, 55, 0.95);
+  color: #000;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #7a6119 0%,
+    var(--gold) 50%,
+    #7a6119 100%
+  );
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e7c85c;
+}
+
+/* Textura muito subtil */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image:
+    radial-gradient(rgba(255,255,255,.02) 1px, transparent 1px);
+
+  background-size: 4px 4px;
+
+  opacity: .18;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+/* Glow reutilizável */
+
+.gold-glow {
+  box-shadow:
+    0 0 18px rgba(212, 175, 55, 0.18),
+    0 0 45px rgba(212, 175, 55, 0.08);
+}
+
+/* Hover premium */
+
+.hover-lift {
+  transition:
+    transform .35s cubic-bezier(.22,1,.36,1),
+    box-shadow .35s cubic-bezier(.22,1,.36,1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.45),
+    0 0 20px rgba(212,175,55,.08);
+}
+
+/* Fade nas imagens */
+
+.image-hover {
+  overflow: hidden;
+}
+
+.image-hover img {
+  transition: transform .8s cubic-bezier(.22,1,.36,1);
+}
+
+.image-hover:hover img {
+  transform: scale(1.04);
 }
