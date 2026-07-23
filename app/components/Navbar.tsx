@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import Image from "next/image";
 const links = [
   { label: "Accueil", href: "#accueil" },
   { label: "Services", href: "#services" },
@@ -20,12 +20,20 @@ export default function Navbar() {
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/85 backdrop-blur-md">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-        <a
-          href="#accueil"
-          className="text-xl font-black uppercase tracking-wider text-[#d4af37]"
-        >
-          Rigor Fulgor
-        </a>
+      <a
+      href="#accueil"
+      className="relative flex h-16 w-[180px] items-center"
+      aria-label="Rigor Fulgor — Accueil"
+    >
+      <Image
+        src="/images/logo.jpg"
+        alt="Rigor Fulgor"
+        fill
+        priority
+        sizes="180px"
+        className="object-contain object-left"
+      />
+    </a>
 
         <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => (

@@ -60,7 +60,7 @@ export default function About() {
 
           <div className="relative min-h-[420px]">
             <Image
-              src="/images/about-workshop.png"
+              src="/images/foto-equipa.jpg"
               alt="Atelier Rigor Fulgor"
               fill
               className="object-cover"

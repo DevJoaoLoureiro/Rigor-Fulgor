@@ -9,17 +9,17 @@ const galleryItems = [
   {
     title: "Rénovation de jantes",
     category: "Jantes",
-    image: "/images/gallery-jantes.png",
+    image: "/images/concertojante.png",
   },
   {
     title: "Pièces chromées",
     category: "Chromage",
-    image: "/images/gallery-chromage.png",
+    image: "/images/cromagem.jpg",
   },
   {
     title: "Intérieur automobile",
     category: "Sellerie",
-    image: "/images/gallery-sellerie.png",
+    image: "/images/interior.jpg",
   },
 ];
 

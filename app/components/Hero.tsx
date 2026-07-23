@@ -9,22 +9,22 @@ import { MdVerified } from "react-icons/md";
 
 const highlights = [
   {
-    icon: <Award className="h-6 w-6" />,
+    icon: <Award className="h-5 w-5" />,
     title: "Depuis 2009",
     description: "Plus de 15 ans d’expérience",
   },
   {
-    icon: <MdVerified className="h-6 w-6" />,
+    icon: <MdVerified className="h-5 w-5" />,
     title: "Qualité garantie",
     description: "Des finitions professionnelles et durables",
   },
   {
-    icon: <GiCarWheel className="h-6 w-6" />,
+    icon: <GiCarWheel className="h-5 w-5" />,
     title: "Tous types de jantes",
     description: "Aluminium, sportives, classiques et spéciales",
   },
   {
-    icon: <FaMapMarkerAlt className="h-6 w-6" />,
+    icon: <FaMapMarkerAlt className="h-5 w-5" />,
     title: "Intervention en France",
     description: "Service disponible dans plusieurs régions",
   },
@@ -34,8 +34,8 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.14,
-      delayChildren: 0.2,
+      staggerChildren: 0.13,
+      delayChildren: 0.15,
     },
   },
 };
@@ -43,13 +43,13 @@ const containerVariants = {
 const fadeUpVariants = {
   hidden: {
     opacity: 0,
-    y: 28,
+    y: 24,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.75,
+      duration: 0.7,
       ease: [0.22, 1, 0.36, 1] as const,
     },
   },
@@ -57,93 +57,116 @@ const fadeUpVariants = {
 
 export default function Hero() {
   return (
-    <section id="accueil" className="bg-black pt-20">
-      <div className="relative min-h-[680px] overflow-hidden lg:min-h-[78vh]">
-        {/* Imagem com zoom cinematográfico */}
+    <section id="accueil" className="overflow-hidden bg-black pt-20">
+      {/* HERO */}
+      <div className="relative min-h-[680px] overflow-hidden lg:min-h-[760px]">
+        {/* Imagem */}
         <motion.div
-          initial={{ scale: 1.08 }}
-          animate={{ scale: 1.02 }}
+          initial={{ scale: 1.06 }}
+          animate={{ scale: 1.01 }}
           transition={{
-            duration: 8,
+            duration: 9,
             ease: "easeOut",
           }}
           className="absolute inset-0"
         >
           <Image
-            src="/images/hero-jantes.png"
-            alt="Jante automobile restaurée par Rigor & Fulgor"
+            src="/images/bannernew.png"
+            alt="Jantes automobiles restaurées par Rigor Fulgor"
             fill
             priority
-            quality={88}
+            quality={92}
             sizes="100vw"
-            className="object-cover object-[62%_center] sm:object-center"
+            className="
+              object-cover
+              object-[68%_center]
+              sm:object-[65%_center]
+              lg:object-[62%_center]
+            "
           />
         </motion.div>
 
-        {/* Overlay lateral */}
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.98)_0%,rgba(0,0,0,0.90)_38%,rgba(0,0,0,0.42)_72%,rgba(0,0,0,0.18)_100%)]" />
+        {/* Overlay lateral mais progressivo */}
+        <div
+          aria-hidden="true"
+          className="
+            absolute inset-0
+            bg-[linear-gradient(90deg,rgba(0,0,0,0.98)_0%,rgba(0,0,0,0.92)_24%,rgba(0,0,0,0.78)_43%,rgba(0,0,0,0.42)_67%,rgba(0,0,0,0.10)_100%)]
+          "
+        />
 
         {/* Overlay vertical */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/25" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20"
+        />
 
-        {/* Brilho dourado animado */}
+        {/* Sombra extra no mobile para garantir legibilidade */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-black/20 sm:bg-transparent"
+        />
+
+        {/* Glow dourado subtil */}
         <motion.div
           aria-hidden="true"
-          initial={{ opacity: 0, x: -80 }}
+          initial={{ opacity: 0 }}
           animate={{
-            opacity: [0.1, 0.22, 0.1],
-            x: [-80, 30, -80],
+            opacity: [0.08, 0.16, 0.08],
           }}
           transition={{
             duration: 7,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="pointer-events-none absolute left-[-160px] top-1/2 h-[480px] w-[480px] -translate-y-1/2 rounded-full bg-[#d4af37]/10 blur-[140px]"
+          className="
+            pointer-events-none absolute
+            -left-40 top-1/2
+            h-[500px] w-[500px]
+            -translate-y-1/2 rounded-full
+            bg-[#d4af37]/10 blur-[150px]
+          "
         />
 
-        {/* Reflexo subtil na imagem */}
-        <motion.div
-          aria-hidden="true"
-          initial={{ x: "-140%", opacity: 0 }}
-          animate={{
-            x: ["-140%", "140%"],
-            opacity: [0, 0.12, 0],
-          }}
-          transition={{
-            duration: 4.5,
-            delay: 1.5,
-            repeat: Infinity,
-            repeatDelay: 5,
-            ease: "easeInOut",
-          }}
-          className="pointer-events-none absolute inset-y-0 w-[35%] skew-x-[-18deg] bg-gradient-to-r from-transparent via-white/10 to-transparent blur-xl"
-        />
-
-        <div className="relative mx-auto flex min-h-[680px] max-w-7xl items-center px-6 py-20 lg:min-h-[78vh] lg:px-8">
+        {/* Conteúdo */}
+        <div
+          className="
+            relative mx-auto flex min-h-[680px] max-w-7xl items-center
+            px-5 py-20
+            sm:px-6
+            lg:min-h-[760px] lg:px-10 lg:py-24
+          "
+        >
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="max-w-3xl"
+            className="max-w-[760px]"
           >
             {/* Eyebrow */}
             <motion.div
               variants={fadeUpVariants}
-              className="mb-5 flex items-center gap-3"
+              className="mb-6 flex items-center gap-4"
             >
               <motion.span
                 initial={{ width: 0 }}
-                animate={{ width: 32 }}
+                animate={{ width: 36 }}
                 transition={{
                   duration: 0.8,
-                  delay: 0.3,
+                  delay: 0.25,
                   ease: "easeOut",
                 }}
-                className="h-px bg-[#d4af37]"
+                className="h-px shrink-0 bg-[#d4af37]"
               />
 
-              <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#d4af37] sm:text-sm sm:tracking-[0.32em]">
+              <p
+                className="
+                  text-[10px] font-bold uppercase
+                  tracking-[0.24em] text-[#d4af37]
+                  sm:text-xs sm:tracking-[0.32em]
+                  lg:text-sm
+                "
+              >
                 Spécialiste de la rénovation automobile
               </p>
             </motion.div>
@@ -151,7 +174,14 @@ export default function Hero() {
             {/* Título */}
             <motion.h1
               variants={fadeUpVariants}
-              className="text-[3.1rem] font-black uppercase leading-[0.9] tracking-[-0.035em] text-white sm:text-6xl lg:text-[5.4rem]"
+              className="
+                max-w-[720px]
+                text-[2.9rem] font-black uppercase
+                leading-[0.92] tracking-[-0.04em] text-white
+                sm:text-[4.1rem]
+                lg:text-[5rem]
+                xl:text-[5.4rem]
+              "
             >
               Réparation
               <br />
@@ -159,19 +189,29 @@ export default function Hero() {
               <br />
 
               <motion.span
-                initial={{ opacity: 0, backgroundPosition: "200% center" }}
-                animate={{ opacity: 1, backgroundPosition: "0% center" }}
+                initial={{
+                  opacity: 0,
+                  backgroundPosition: "200% center",
+                }}
+                animate={{
+                  opacity: 1,
+                  backgroundPosition: "0% center",
+                }}
                 transition={{
                   opacity: {
                     duration: 0.7,
-                    delay: 0.65,
+                    delay: 0.6,
                   },
                   backgroundPosition: {
-                    duration: 1.8,
-                    delay: 0.7,
+                    duration: 1.7,
+                    delay: 0.65,
                   },
                 }}
-                className="bg-gradient-to-r from-[#b88a16] via-[#f2d56f] to-[#d4af37] bg-[length:200%_100%] bg-clip-text text-transparent"
+                className="
+                  bg-gradient-to-r
+                  from-[#b98b17] via-[#f1d469] to-[#d4af37]
+                  bg-[length:200%_100%] bg-clip-text text-transparent
+                "
               >
                 depuis 2009
               </motion.span>
@@ -180,7 +220,11 @@ export default function Hero() {
             {/* Descrição */}
             <motion.p
               variants={fadeUpVariants}
-              className="mt-7 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8"
+              className="
+                mt-7 max-w-2xl
+                text-base leading-7 text-white/60
+                sm:text-lg sm:leading-8
+              "
             >
               Réparation, rénovation et personnalisation de jantes, chromage de
               pièces et restauration de sellerie automobile.
@@ -189,24 +233,36 @@ export default function Hero() {
             {/* Botões */}
             <motion.div
               variants={fadeUpVariants}
-              className="mt-8 flex flex-col gap-4 sm:flex-row"
+              className="mt-9 flex flex-col gap-4 sm:flex-row"
             >
               <motion.a
                 href="#contact"
                 whileHover={{
                   y: -3,
-                  scale: 1.015,
+                  scale: 1.012,
                 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2 }}
-                className="relative overflow-hidden rounded-md bg-[#d4af37] px-8 py-4 text-center text-sm font-black uppercase tracking-wide text-black shadow-[0_10px_35px_rgba(212,175,55,0.15)]"
+                className="
+                  group relative flex min-h-14 items-center justify-center
+                  overflow-hidden rounded-lg
+                  bg-[#d4af37] px-8 py-4
+                  text-center text-sm font-black uppercase
+                  tracking-[0.04em] text-black
+                  shadow-[0_14px_40px_rgba(212,175,55,0.20)]
+                  transition-shadow duration-300
+                  hover:bg-[#e4c454]
+                  hover:shadow-[0_18px_50px_rgba(212,175,55,0.30)]
+                "
               >
-                <motion.span
+                <span
                   aria-hidden="true"
-                  initial={{ x: "-130%" }}
-                  whileHover={{ x: "130%" }}
-                  transition={{ duration: 0.7 }}
-                  className="absolute inset-y-0 w-1/3 skew-x-[-20deg] bg-white/30 blur-md"
+                  className="
+                    absolute inset-y-0 -left-1/2 w-1/3
+                    skew-x-[-20deg] bg-white/30 blur-md
+                    transition-transform duration-700
+                    group-hover:translate-x-[500%]
+                  "
                 />
 
                 <span className="relative z-10">Demander un devis</span>
@@ -216,13 +272,21 @@ export default function Hero() {
                 href="#services"
                 whileHover={{
                   y: -3,
-                  scale: 1.015,
-                  backgroundColor: "#d4af37",
-                  color: "#000000",
+                  scale: 1.012,
                 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2 }}
-                className="rounded-md border border-[#d4af37]/70 bg-black/20 px-8 py-4 text-center text-sm font-black uppercase tracking-wide text-white backdrop-blur-sm"
+                className="
+                  flex min-h-14 items-center justify-center
+                  rounded-lg border border-[#d4af37]/65
+                  bg-black/25 px-8 py-4
+                  text-center text-sm font-black uppercase
+                  tracking-[0.04em] text-white
+                  backdrop-blur-sm
+                  transition-colors duration-300
+                  hover:border-[#d4af37]
+                  hover:bg-[#d4af37]/10
+                "
               >
                 Découvrir nos services
               </motion.a>
@@ -231,7 +295,12 @@ export default function Hero() {
             {/* Confiança */}
             <motion.div
               variants={fadeUpVariants}
-              className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-xs font-semibold text-white/65 sm:text-sm"
+              className="
+                mt-7 flex flex-wrap
+                gap-x-7 gap-y-3
+                text-xs font-semibold text-white/55
+                sm:text-sm
+              "
             >
               {[
                 "Devis personnalisé",
@@ -239,8 +308,12 @@ export default function Hero() {
                 "Intervention en France",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-[#d4af37]" />
-                  {item}
+                  <Check
+                    aria-hidden="true"
+                    className="h-4 w-4 shrink-0 text-[#d4af37]"
+                  />
+
+                  <span>{item}</span>
                 </div>
               ))}
             </motion.div>
@@ -248,24 +321,30 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Destaques */}
-      <div className="border-y border-white/10 bg-[#0b0b0b]">
+      {/* DESTAQUES */}
+      <div className="border-y border-white/10 bg-[#0a0a0a]">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{
             once: true,
-            amount: 0.25,
+            amount: 0.2,
           }}
           variants={{
             hidden: {},
             visible: {
               transition: {
-                staggerChildren: 0.12,
+                staggerChildren: 0.1,
               },
             },
           }}
-          className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-white/10 px-6 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4 lg:px-8"
+          className="
+            mx-auto grid max-w-7xl
+            grid-cols-1 divide-y divide-white/10
+            px-5
+            sm:grid-cols-2 sm:divide-x sm:divide-y-0 sm:px-6
+            lg:grid-cols-4 lg:px-8
+          "
         >
           {highlights.map((item) => (
             <motion.div
@@ -273,7 +352,7 @@ export default function Hero() {
               variants={{
                 hidden: {
                   opacity: 0,
-                  y: 25,
+                  y: 22,
                 },
                 visible: {
                   opacity: 1,
@@ -288,23 +367,47 @@ export default function Hero() {
                 y: -4,
                 backgroundColor: "rgba(255,255,255,0.025)",
               }}
-              className="group px-6 py-8 text-center"
+              className="
+                group flex min-h-[170px]
+                flex-col items-center justify-center
+                px-6 py-8 text-center
+                transition-colors duration-300
+              "
             >
               <motion.div
                 whileHover={{
                   scale: 1.08,
                   rotate: 3,
                 }}
-                className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-[#d4af37]/40 bg-[#d4af37]/5 text-[#d4af37] transition duration-300 group-hover:border-[#d4af37] group-hover:bg-[#d4af37]/10 group-hover:shadow-[0_0_25px_rgba(212,175,55,0.15)]"
+                transition={{
+                  duration: 0.25,
+                }}
+                className="
+                  flex h-12 w-12 items-center justify-center
+                  rounded-full
+                  border border-[#d4af37]/35
+                  bg-[#d4af37]/[0.07]
+                  text-[#d4af37]
+                  transition-all duration-300
+                  group-hover:-translate-y-1
+                  group-hover:border-[#d4af37]
+                  group-hover:bg-[#d4af37]/15
+                  group-hover:shadow-[0_0_30px_rgba(212,175,55,0.16)]
+                "
               >
                 {item.icon}
               </motion.div>
 
-              <h2 className="text-sm font-black uppercase tracking-wide text-white">
+              <h2
+                className="
+                  mt-4 text-sm font-black uppercase
+                  tracking-[0.05em] text-white
+                "
+              >
                 {item.title}
               </h2>
 
-              <p className="mt-2 text-sm leading-6 text-white/50">
+              <p className="mt-2 max-w-[230px] text-sm leading-6 text-white/45">
                 {item.description}
               </p>
             </motion.div>
