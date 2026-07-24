@@ -171,16 +171,16 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            {/* Título */}
+           {/* Título */}
             <motion.h1
               variants={fadeUpVariants}
               className="
-                max-w-[720px]
-                text-[2.9rem] font-black uppercase
+                max-w-[760px]
+                text-[2.8rem] font-black uppercase
                 leading-[0.92] tracking-[-0.04em] text-white
-                sm:text-[4.1rem]
-                lg:text-[5rem]
-                xl:text-[5.4rem]
+                sm:text-[4rem]
+                lg:text-[4.8rem]
+                xl:text-[5.3rem]
               "
             >
               Réparation
@@ -210,24 +210,46 @@ export default function Hero() {
                 className="
                   bg-gradient-to-r
                   from-[#b98b17] via-[#f1d469] to-[#d4af37]
-                  bg-[length:200%_100%] bg-clip-text text-transparent
+                  bg-[length:200%_100%]
+                  bg-clip-text
+                  text-transparent
                 "
               >
-                depuis 2009
+                Chromage & Sellerie
               </motion.span>
             </motion.h1>
+
+            {/* Depuis 2009 */}
+            <motion.p
+              variants={fadeUpVariants}
+              className="
+                mt-5
+                text-xs
+                font-bold
+                uppercase
+                tracking-[0.28em]
+                text-[#d4af37]
+                sm:text-sm
+              "
+            >
+              Depuis 2009
+            </motion.p>
 
             {/* Descrição */}
             <motion.p
               variants={fadeUpVariants}
               className="
-                mt-7 max-w-2xl
-                text-base leading-7 text-white/60
-                sm:text-lg sm:leading-8
+                mt-7
+                max-w-2xl
+                text-base
+                leading-7
+                text-white/60
+                sm:text-lg
+                sm:leading-8
               "
             >
-              Réparation, rénovation et personnalisation de jantes, chromage de
-              pièces et restauration de sellerie automobile.
+              Réparation, rénovation et personnalisation de jantes en aluminium,
+              chromage de pièces automobiles et restauration de sellerie.
             </motion.p>
 
             {/* Botões */}

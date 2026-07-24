@@ -823,7 +823,7 @@ export default function WheelVisualizer() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[1.35fr_0.65fr]">
+        <div className="mt-12 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0b0b0b]">
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 px-5 py-4">
               <div className="flex items-center gap-2 text-sm text-white/65">
@@ -930,8 +930,7 @@ export default function WheelVisualizer() {
 
                   <input
                     type="file"
-                    accept="image/jpeg,image/png,image/webp"
-                    capture="environment"
+                    accept="image/*"
                     onChange={handleImageUpload}
                     className="sr-only"
                   />

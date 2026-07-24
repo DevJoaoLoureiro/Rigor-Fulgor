@@ -256,8 +256,8 @@ export default function Contact() {
             <ContactItem
               icon={<PhoneIcon />}
               label="Téléphone"
-              value="À ajouter"
-              href="tel:"
+              value="+33 629521327"
+              href="tel:629521327"
             />
 
             <ContactItem
